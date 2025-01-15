@@ -5,7 +5,7 @@
 - CSS 框架: TailwindCSS
 - 路由: Vue Router
 
-![圖片](./public/home.png)
+![首頁](./public/home.png)
 
 ## 功能特性
 
