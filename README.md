@@ -5,6 +5,8 @@
 - CSS 框架: TailwindCSS
 - 路由: Vue Router
 
+![圖片](./public/home.png)
+
 ## 功能特性
 
 - 文章的增刪改查
