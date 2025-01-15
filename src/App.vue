@@ -139,7 +139,7 @@
           <div>
             <h3 class="mb-4 text-lg font-semibold text-gray-800 dark:text-white">關於我們</h3>
             <p class="text-gray-600 dark:text-gray-300">
-              分享生活、技術、美食等各種有趣的話題，希望能為讀者帶來價值和樂趣。
+              阿祥一月份開始的一個小起點
             </p>
           </div>
 
@@ -171,14 +171,14 @@
                 <svg class="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                contact@example.com
+                danielchixxyy@gmail.com
               </li>
               <li class="flex items-center text-gray-600 dark:text-gray-300">
                 <svg class="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                台北市信義區信義路五段7號
+                台北市大同區
               </li>
             </ul>
           </div>
