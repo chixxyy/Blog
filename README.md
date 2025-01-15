@@ -1,4 +1,4 @@
-# My Blog Vue
+# My Blog
 
 - 前端框架: Vue 3
 - 開發語言: TypeScript
