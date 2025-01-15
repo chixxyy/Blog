@@ -64,7 +64,7 @@
             <div class="space-y-4">
               <a href="https://github.com/chixxyy/VueMyBlog" class="block group">
                 <img 
-                  :src="ads.leftSide.image || 'https://picsum.photos/200'" 
+                  :src="ads.leftSide.image" 
                   alt="廣告" 
                   class="object-cover w-full h-40 mb-2 rounded-lg" 
                 />
@@ -176,13 +176,13 @@
               <a href="https://github.com/chixxyy/VueMyBlog" class="block group">
                 <div class="relative">
                   <img 
-                    :src="ads.rightSide.image || 'https://picsum.photos/200'" 
+                    :src="ads.rightSide.image" 
                     alt="廣告" 
                     class="object-cover w-full h-40 rounded-lg" 
                   />
                   <span class="absolute px-2 py-1 text-xs text-white bg-gray-900 bg-opacity-50 rounded top-2 right-2">廣告</span>
                 </div>
-                <h3 class="mt-2 text-gray-800 dark:text-white group-hover:text-blue-500">精選課程推薦</h3>
+                <h3 class="mt-2 text-gray-800 dark:text-white group-hover:text-blue-500">課程推薦</h3>
                 <p class="text-sm text-gray-500 dark:text-gray-400">立即報名享優惠</p>
               </a>
             </div>
@@ -256,7 +256,7 @@
         'translate-x-full opacity-0': !showFloatingAd
       }"
     >
-      <div class="relative p-4 bg-white rounded-lg shadow-lg dark:bg-gray-800">
+      <div class="relative p-4 bg-white border-2 border-blue-500 rounded-lg shadow-lg dark:bg-gray-800">
         <button 
           @click="closeFloatingAd" 
           class="absolute p-1 text-gray-500 bg-white rounded-full shadow-md -top-2 -right-2 hover:text-gray-700 dark:bg-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
@@ -359,14 +359,10 @@ const ads = ref({
   leftSide: {
     image: 'https://picsum.photos/200',
     link: 'https://github.com/chixxyy/VueMyBlog',
-    title: '技術課程推廣',
-    description: '限時優惠中'
   },
   rightSide: {
     image: 'https://picsum.photos/200',
     link: 'https://github.com/chixxyy/VueMyBlog',
-    title: '精選課程推薦',
-    description: '立即報名享優惠'
   }
 })
 
@@ -378,6 +374,7 @@ const trackAdImpression = (position, adId) => {
   console.log(`Ad impressed: ${position} - ${adId}`)
 }
 
+const threshold = 0;
 const showFloatingAd = ref(false)
 const hasClosedAd = ref(false)
 
