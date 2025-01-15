@@ -383,7 +383,7 @@ const hasClosedAd = ref(false)
 
 const floatingAd = ref({
   id: 'floating-1',
-  image: '/placeholder-ad.png',
+  image: 'https://picsum.photos/200',
   title: '限時優惠活動',
   description: '新用戶專屬優惠，立即查看',
   link: 'https://github.com/chixxyy/VueMyBlog'
