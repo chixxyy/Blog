@@ -105,6 +105,32 @@
             </select>
           </div>
 
+          <div class="p-6 bg-white rounded-lg shadow-md dark:bg-gray-800">
+            <h2 class="mb-4 text-lg font-semibold text-gray-800 dark:text-white">最近閱讀</h2>
+            <div class="space-y-3">
+              <a v-for="i in 3" :key="i" href="#" class="block group">
+                <h3 class="text-gray-800 transition-colors dark:text-white group-hover:text-blue-500">
+                  Vue3 組件設計模式
+                </h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400">5分鐘前閱讀</p>
+              </a>
+            </div>
+          </div>
+
+          <div class="p-6 bg-white rounded-lg shadow-md dark:bg-gray-800">
+            <h2 class="mb-4 text-lg font-semibold text-gray-800 dark:text-white">推薦文章</h2>
+            <div class="space-y-3">
+              <div v-for="i in 3" :key="i" class="flex items-center gap-3">
+                <span class="flex items-center justify-center w-8 h-8 text-white bg-blue-500 rounded-full">
+                  {{ i }}
+                </span>
+                <a href="#" class="text-gray-800 transition-colors dark:text-white hover:text-blue-500">
+                  TypeScript 最佳實踐指南
+                </a>
+              </div>
+            </div>
+          </div>
+
           <div class="p-6 space-y-6 bg-white rounded-lg shadow-md dark:bg-gray-800">
             <h2 class="mb-4 text-lg font-semibold text-gray-800 dark:text-white">網站統計</h2>
             <div class="space-y-4">
