@@ -1,8 +1,8 @@
 <template>
-  <div :class="{'dark': isDark}" class="flex flex-col min-h-screen transition-colors duration-300 bg-gray-100 dark:bg-gray-900">
+  <div :class="{'dark': isDark}" class="flex flex-col min-h-screen bg-gray-100 transition-colors duration-300 dark:bg-gray-900">
     <header class="bg-white shadow-md dark:bg-gray-800">
       <div class="px-4 py-6 mx-auto max-w-7xl">
-        <div class="flex items-center justify-between gap-4">
+        <div class="flex gap-4 justify-between items-center">
           <h1 class="text-3xl font-bold text-gray-800 whitespace-nowrap dark:text-white">ChiBlog</h1>
           
           <div class="flex-1 max-w-xl">
@@ -10,13 +10,13 @@
               v-model="searchQuery"
               type="text"
               placeholder="搜索文章..."
-              class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
+              class="px-4 py-2 w-full rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
             />
           </div>
           
           <button 
             @click="toggleDark" 
-            class="p-2 transition-colors bg-gray-200 rounded-lg dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+            class="p-2 bg-gray-200 rounded-lg transition-colors dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
             title="切換深色模式"
           >
             <span v-if="isDark" class="text-yellow-400">🌞</span>
@@ -28,7 +28,7 @@
 
     <div class="flex-grow">
       <div class="flex gap-6 px-4 py-8 mx-auto max-w-7xl">
-        <aside class="sticky self-start flex-shrink-0 w-64 space-y-6 top-4">
+        <aside class="sticky top-4 flex-shrink-0 self-start space-y-6 w-64">
           <div class="p-6 bg-white rounded-lg shadow-md dark:bg-gray-800">
             <h2 class="mb-4 text-lg font-semibold text-gray-800 dark:text-white">文章分類</h2>
             <nav class="space-y-2">
@@ -66,7 +66,7 @@
                 <img 
                   :src="ads.leftSide.image" 
                   alt="廣告" 
-                  class="object-cover w-full h-40 mb-2 rounded-lg" 
+                  class="object-cover mb-2 w-full h-40 rounded-lg" 
                 />
                 <p class="text-sm text-gray-500 dark:text-gray-400">廣告</p>
               </a>
@@ -106,12 +106,12 @@
           />
         </main>
 
-        <aside class="sticky self-start flex-shrink-0 w-64 space-y-6 top-4">
+        <aside class="sticky top-4 flex-shrink-0 self-start space-y-6 w-64">
           <div class="p-6 bg-white rounded-lg shadow-md dark:bg-gray-800">
             <h2 class="mb-4 text-lg font-semibold text-gray-800 dark:text-white">排序方式</h2>
             <select 
               v-model="sortBy"
-              class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+              class="px-3 py-2 w-full rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
             >
               <option value="newest">最新發布</option>
               <option value="oldest">最早發布</option>
@@ -134,8 +134,8 @@
           <div class="p-6 bg-white rounded-lg shadow-md dark:bg-gray-800">
             <h2 class="mb-4 text-lg font-semibold text-gray-800 dark:text-white">推薦文章</h2>
             <div class="space-y-3">
-              <div v-for="i in 3" :key="i" class="flex items-center gap-3">
-                <span class="flex items-center justify-center w-8 h-8 text-white bg-blue-500 rounded-full">
+              <div v-for="i in 3" :key="i" class="flex gap-3 items-center">
+                <span class="flex justify-center items-center w-8 h-8 text-white bg-blue-500 rounded-full">
                   {{ i }}
                 </span>
                 <a href="#" class="text-gray-800 transition-colors dark:text-white hover:text-blue-500">
@@ -180,7 +180,7 @@
                     alt="廣告" 
                     class="object-cover w-full h-40 rounded-lg" 
                   />
-                  <span class="absolute px-2 py-1 text-xs text-white bg-gray-900 bg-opacity-50 rounded top-2 right-2">廣告</span>
+                  <span class="absolute top-2 right-2 px-2 py-1 text-xs text-white bg-gray-900 bg-opacity-50 rounded">廣告</span>
                 </div>
                 <h3 class="mt-2 text-gray-800 dark:text-white group-hover:text-blue-500">課程推薦</h3>
                 <p class="text-sm text-gray-500 dark:text-gray-400">立即報名享優惠</p>
@@ -226,13 +226,13 @@
             <h3 class="mb-4 text-lg font-semibold text-gray-800 dark:text-white">聯絡資訊</h3>
             <ul class="space-y-2">
               <li class="flex items-center text-gray-600 dark:text-gray-300">
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
                 danielchixxyy@gmail.com
               </li>
               <li class="flex items-center text-gray-600 dark:text-gray-300">
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="mr-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
@@ -250,16 +250,16 @@
 
     <div 
       v-show="showFloatingAd" 
-      class="fixed z-50 transition-all duration-300 right-4 top-1/3"
+      class="fixed right-4 top-1/3 z-50 transition-all duration-300"
       :class="{
         'translate-x-0 opacity-100': showFloatingAd, 
         'translate-x-full opacity-0': !showFloatingAd
       }"
     >
-      <div class="relative p-4 bg-white border-2 border-blue-500 rounded-lg shadow-lg dark:bg-gray-800">
+      <div class="relative p-4 bg-white rounded-lg border-2 border-blue-500 shadow-lg dark:bg-gray-800">
         <button 
           @click="closeFloatingAd" 
-          class="absolute p-1 text-gray-500 bg-white rounded-full shadow-md -top-2 -right-2 hover:text-gray-700 dark:bg-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+          class="absolute -top-2 -right-2 p-1 text-gray-500 bg-white rounded-full shadow-md hover:text-gray-700 dark:bg-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
         >
           <span class="sr-only">關閉廣告</span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -271,7 +271,7 @@
           <img 
             :src="floatingAd.image" 
             alt="廣告" 
-            class="object-cover w-full h-32 mb-2 rounded-lg"
+            class="object-cover mb-2 w-full h-32 rounded-lg"
             @click="handleAdClick('floating', floatingAd.id)"
           />
           <h3 class="text-sm font-medium text-gray-900 dark:text-white">{{ floatingAd.title }}</h3>
@@ -303,13 +303,7 @@ const checkSystemDarkMode = () => {
 
 const initDarkMode = () => {
   const savedMode = localStorage.getItem('darkMode')
-  
-  if (savedMode !== null) {
-    isDark.value = savedMode === 'true'
-  } else {
-    isDark.value = checkSystemDarkMode()
-  }
-  
+  isDark.value = savedMode !== null ? savedMode === 'true' : checkSystemDarkMode()
   updateDarkMode()
 }
 
