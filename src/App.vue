@@ -9,7 +9,7 @@
             <input 
               v-model="searchQuery"
               type="text"
-              placeholder="搜索文章..."
+              placeholder="搜尋文章..."
               class="px-4 py-2 w-full rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
             />
           </div>
@@ -79,7 +79,7 @@
               <span class="px-3 py-1 text-sm text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-200">Vue3</span>
               <span class="px-3 py-1 text-sm text-green-800 bg-green-100 rounded-full dark:bg-green-900 dark:text-green-200">旅遊</span>
               <span class="px-3 py-1 text-sm text-yellow-800 bg-yellow-100 rounded-full dark:bg-yellow-900 dark:text-yellow-200">美食</span>
-              <span class="px-3 py-1 text-sm text-purple-800 bg-purple-100 rounded-full dark:bg-purple-900 dark:text-purple-200">攝影技巧</span>
+              <span class="px-3 py-1 text-sm text-purple-800 bg-purple-100 rounded-full dark:bg-purple-900 dark:text-purple-200">攝影</span>
               <span class="px-3 py-1 text-sm text-pink-800 bg-pink-100 rounded-full dark:bg-pink-900 dark:text-pink-200">裝修</span>
               <span class="px-3 py-1 text-sm text-red-800 bg-red-100 rounded-full dark:bg-red-900 dark:text-red-200">電影</span>
             </div>
@@ -212,11 +212,6 @@
               <li>
                 <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">
                   熱門文章
-                </a>
-              </li>
-              <li>
-                <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400">
-                  文章分類
                 </a>
               </li>
             </ul>
