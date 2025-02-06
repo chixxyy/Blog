@@ -70,8 +70,8 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
-import { getPosts, deletePost } from '../services/api'
+import { ref } from 'vue'
+import { deletePost } from '../services/api'
 
 const props = defineProps({
   posts: {
@@ -87,60 +87,6 @@ const emit = defineEmits(['edit', 'refresh'])
 
 const loading = ref(false)
 const error = ref(null)
-
-const showBackToTop = ref(false)
-
-const handleScroll = () => {
-  showBackToTop.value = window.pageYOffset > 200
-}
-
-const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  })
-}
-
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll)
-})
-
-const fetchPosts = async () => {
-  loading.value = true;
-  error.value = null;
-  try {
-    console.log('正在獲取文章，參數:', {
-      category: props.selectedCategory,
-      search: props.searchQuery,
-      sort: props.sortBy
-    });
-    
-    props.posts = await getPosts({
-      category: props.selectedCategory,
-      search: props.searchQuery,
-      sort: props.sortBy
-    });
-    
-    console.log('獲取文章成功:', props.posts);
-  } catch (err) {
-    console.error('獲取文章失敗:', err);
-    error.value = err.response?.data?.message || '獲取文章失敗';
-  } finally {
-    loading.value = false;
-  }
-};
-
-onMounted(fetchPosts)
-
-watch([
-  () => props.selectedCategory,
-  () => props.searchQuery,
-  () => props.sortBy
-], fetchPosts)
 
 const handleDelete = async (id) => {
   if (!confirm('確定要刪除這篇文章嗎？')) return
