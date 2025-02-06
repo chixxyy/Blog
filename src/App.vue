@@ -14,14 +14,24 @@
             />
           </div>
           
-          <button 
-            @click="toggleDark" 
-            class="p-2 bg-gray-200 rounded-lg transition-colors dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
-            title="切換深色模式"
-          >
-            <span v-if="isDark" class="text-yellow-400">🌞</span>
-            <span v-else class="text-gray-700">🌙</span>
-          </button>
+          <div class="flex gap-4 items-center">
+            <button 
+              @click="showEditor = true"
+              class="px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600"
+            >
+              發布文章
+            </button>
+
+            
+            <button 
+              @click="toggleDark" 
+              class="p-2 bg-gray-200 rounded-lg transition-colors dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+              title="切換深色模式"
+            >
+              <span v-if="isDark" class="text-yellow-400">🌞</span>
+              <span v-else class="text-gray-700">🌙</span>
+            </button>
+          </div>
         </div>
       </div>
     </header>
@@ -103,6 +113,7 @@
             :selectedCategory="selectedCategory"
             :searchQuery="searchQuery"
             :sortBy="sortBy"
+            @edit="handleEdit"
           />
         </main>
 
@@ -274,12 +285,23 @@
         </div>
       </div>
     </div>
+
+    <div v-if="showEditor" class="flex fixed inset-0 z-50 justify-center items-center bg-black bg-opacity-50">
+      <div class="mx-4 w-full max-w-2xl">
+        <PostEditor 
+          :post="editingPost"
+          @save="handleSave"
+          @cancel="handleCancel"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, watch, computed, onUnmounted } from 'vue'
 import BlogList from './components/BlogList.vue'
+import PostEditor from './components/PostEditor.vue'
 
 const isDark = ref(false)
 const selectedCategory = ref('')
@@ -406,4 +428,24 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
 })
+
+const showEditor = ref(false)
+const editingPost = ref(null)
+
+const handleSave = async (post) => {
+  showEditor.value = false
+  editingPost.value = null
+  // 重新加載文章列表
+  await fetchPosts()
+}
+
+const handleCancel = () => {
+  showEditor.value = false
+  editingPost.value = null
+}
+
+const handleEdit = (post) => {
+  editingPost.value = post
+  showEditor.value = true
+}
 </script> 
