@@ -11,21 +11,20 @@ const postSchema = new mongoose.Schema({
   },
   category: {
     type: String,
-    required: true
+    required: true,
+    enum: ['技術', '生活', '美食', '攝影', '居家', '影評', '寵物', '健康']
   },
   author: {
     type: String,
-    required: true
+    default: 'Admin'
   },
   tags: [String],
-  createdAt: {
-    type: Date,
-    default: Date.now
-  },
   views: {
     type: Number,
     default: 0
   }
+}, {
+  timestamps: true // 自動添加 createdAt 和 updatedAt
 });
 
 module.exports = mongoose.model('Post', postSchema); 

@@ -47,7 +47,12 @@ router.get('/', async (req, res) => {
 // 獲取單篇文章
 router.get('/:id', async (req, res) => {
   try {
-    const post = await Post.findById(req.params.id);
+    const post = await Post.findByIdAndUpdate(
+      req.params.id,
+      { $inc: { views: 1 } }, // 增加瀏覽次數
+      { new: true }
+    );
+    
     if (!post) {
       return res.status(404).json({ message: '文章不存在' });
     }

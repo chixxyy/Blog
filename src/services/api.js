@@ -4,6 +4,24 @@ const api = axios.create({
   baseURL: '/api'
 });
 
+// 添加請求攔截器
+api.interceptors.request.use(config => {
+  console.log('發送請求:', config.url, config.params || config.data);
+  return config;
+});
+
+// 添加響應攔截器
+api.interceptors.response.use(
+  response => {
+    console.log('收到響應:', response.data);
+    return response;
+  },
+  error => {
+    console.error('請求錯誤:', error.response?.data || error.message);
+    throw error;
+  }
+);
+
 export const getPosts = async (params = {}) => {
   try {
     const response = await api.get('/posts', { params });
