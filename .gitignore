@@ -1,11 +1,11 @@
 # Dependencies
-node_modules
+node_modules/
 .pnp
 .pnp.js
 
 # Build outputs
-dist
-dist-ssr
+dist/
+build/
 *.local
 
 # Cache and logs
