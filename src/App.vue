@@ -110,10 +110,12 @@
 
         <main class="flex-1 min-w-0">
           <BlogList 
+            :posts="posts"
             :selectedCategory="selectedCategory"
             :searchQuery="searchQuery"
             :sortBy="sortBy"
             @edit="handleEdit"
+            @refresh="fetchPosts"
           />
         </main>
 
@@ -302,6 +304,7 @@
 import { ref, onMounted, watch, computed, onUnmounted } from 'vue'
 import BlogList from './components/BlogList.vue'
 import PostEditor from './components/PostEditor.vue'
+import { getPosts } from './services/api'
 
 const isDark = ref(false)
 const selectedCategory = ref('')
@@ -432,10 +435,23 @@ onUnmounted(() => {
 const showEditor = ref(false)
 const editingPost = ref(null)
 
+const posts = ref([])
+
+const fetchPosts = async () => {
+  try {
+    posts.value = await getPosts({
+      category: selectedCategory.value,
+      search: searchQuery.value,
+      sort: sortBy.value
+    })
+  } catch (error) {
+    console.error('獲取文章失敗:', error)
+  }
+}
+
 const handleSave = async (post) => {
   showEditor.value = false
   editingPost.value = null
-  // 重新加載文章列表
   await fetchPosts()
 }
 
@@ -448,4 +464,8 @@ const handleEdit = (post) => {
   editingPost.value = post
   showEditor.value = true
 }
+
+onMounted(fetchPosts)
+
+watch([selectedCategory, searchQuery, sortBy], fetchPosts)
 </script> 

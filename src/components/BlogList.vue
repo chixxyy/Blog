@@ -74,23 +74,17 @@ import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { getPosts, deletePost } from '../services/api'
 
 const props = defineProps({
-  selectedCategory: {
-    type: String,
-    default: ''
+  posts: {
+    type: Array,
+    required: true
   },
-  searchQuery: {
-    type: String,
-    default: ''
-  },
-  sortBy: {
-    type: String,
-    default: 'newest'
-  }
+  selectedCategory: String,
+  searchQuery: String,
+  sortBy: String
 })
 
-const emit = defineEmits(['edit'])
+const emit = defineEmits(['edit', 'refresh'])
 
-const posts = ref([])
 const loading = ref(false)
 const error = ref(null)
 
@@ -125,13 +119,13 @@ const fetchPosts = async () => {
       sort: props.sortBy
     });
     
-    posts.value = await getPosts({
+    props.posts = await getPosts({
       category: props.selectedCategory,
       search: props.searchQuery,
       sort: props.sortBy
     });
     
-    console.log('獲取文章成功:', posts.value);
+    console.log('獲取文章成功:', props.posts);
   } catch (err) {
     console.error('獲取文章失敗:', err);
     error.value = err.response?.data?.message || '獲取文章失敗';
@@ -153,9 +147,9 @@ const handleDelete = async (id) => {
   
   try {
     await deletePost(id)
-    await fetchPosts()
+    emit('refresh')
   } catch (error) {
-    console.error(error)
+    console.error('刪除文章失敗:', error)
   }
 }
 
